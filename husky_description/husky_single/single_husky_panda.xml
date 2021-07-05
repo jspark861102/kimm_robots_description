@@ -1,5 +1,8 @@
 <mujoco model="husky_field">
 	<option noslip_iterations="30" />
+	<size njmax="8000" nconmax="4000"/>
+	<option timestep="0.001"/>
+	
 	<include file="../robots/l_husky_with_panda_hand.xml"/>	
 	<asset>
 		<texture name="floor_tex" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 .2 .3" width="100" height="100" />
@@ -24,12 +27,25 @@
 		<light directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="1 1 3" dir="-1 -1 -3"/>
 		<light directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="1 -1 3" dir="-1 1 -3"/>
 		<light directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="-1 0 3" dir="1 0 -3"/>
+	<body>     
+        <inertial pos="0.0 0.0 0.2" mass="10" diaginertia="1666.667 1666.667 1666.667" />
+            <geom class="cls" name ="table" type="box" pos="0. 0.0 0.2" size="0.2 0.2 0.2" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1" contype="1" conaffinity="1"/>
+            <geom class="viz" type="box" pos="0. 0.0 0.2" size="0.2 0.2 0.2" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1"/>
+		</body>
+		<body>     
+			<inertial pos="0. 0.0 0.8" mass="5.0" diaginertia="0.667 0.667 0.667" />
+				<geom class="cls" name ="box0" type="box" pos="0. 0.0 0.8" size="0.60.025 0.025" friction="1.0 1.0 1.0" rgba="0.6 0.3 0. 1" contype="1" conaffinity="1"/>
+				<geom class="viz" type="box" pos="0. 0.0 0.8" size="0.60.025 0.025" friction="1.0 1.0 1.0" rgba="0.6 0.3 0. 1"/>
+				<!-- <geom class="viz" type="box" pos="0.65 0.0 0.6" size="0.4 0.025 0.025" friction="1.0 1.0 1.0" rgba="0.6 0.3 0. 1"/> -->
+			<freejoint/>
+		</body>
 	</worldbody>
     <keyframe>
-        <key name="front" time="0" qpos ="-1.5 0 -0.12 1 0 0 0
+        <key name="front" time="0" qpos ="1.5 0 -0.12 0 0 0 1
                                     0.0 0.0 
                                     0.0 0.0
-									0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 -1.0"/>
+			             0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 -1.0
+			             0 0 0 1 0 0 0"/>
 									<!-- 0.0 0.0 0.0 -1.57 0.0 3.14 0.0"/> -->
     </keyframe>
 </mujoco>
