@@ -1,5 +1,6 @@
 <mujoco model="l_husky">
     <compiler angle="radian" meshdir="../meshes/" />
+    
     <!-- <size njmax="5000" nconmax="1000" /> -->
     <asset>
         <mesh name="top_plate" file="top_plate.stl" />
@@ -20,9 +21,18 @@
         <mesh name="hand" file="hand.stl" />
     </asset>
     <worldbody>
-        <body name="l_husky" pos = "0 0 0">
-            <freejoint name="l_root"/>         
+        <body name="l_husky" pos = "0 0 -0.116">
             <inertial pos="0 0 0" quat="0.707107 0 0 0.707107"  mass = "46.034" fullinertia="0.6022 1.7386 2.0296 -0.02364 -0.1197 -0.001544"/>
+            <joint armature="0.0001" axis="1 0 0" damping="1e+11" name="robot0:slide0" pos="0 0 0" type="slide"></joint>
+            <joint armature="0.0001" axis="0 1 0" damping="1e+11" name="robot0:slide1" pos="0 0 0" type="slide"></joint>
+            <joint armature="0.0001" axis="0 0 1" damping="1e+0" name="robot0:slide2" pos="0 0 0" type="slide"></joint> 
+            <!-- control the husky base -->
+            
+            <joint name="base_x_slide_joint" type="slide" pos="0 0 0" axis="1 0 0" damping="15000" frictionloss="0"/> 
+            <joint name="base_y_slide_joint" type="slide" pos="0 0 0" axis="0 1 0" damping="15000" frictionloss="0"/> 
+            <joint name="base_z_hinge_joint" type="hinge" pos="0 0 0" axis="0 0 1" damping="15000" frictionloss="0"/>
+            
+
             <!-- <joint name="centroid_l" type="free" pos="0 0 0"/> -->
             <geom class="cls" size="0.4937 0.28545 0.061875" pos="0 0 0.061875" type="box" />
             <geom class="cls" size="0.39496 0.28545 0.051875" pos="0 0 0.175625" type="box" />
@@ -34,33 +44,33 @@
             <body name="l_front_left_wheel_link" pos="0.256 0.2854 0.03282">
                 <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="2.637" diaginertia="0.04411 0.02467 0.02467" />
                 <!-- <joint name="f-l-drive-hinge" pos="0 0 0" axis="0 1 0" /> -->
-                <joint name="l_f-l-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0" damping="5" frictionloss="3"/>
+                <joint name="l_f-l-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0" damping="2" frictionloss="0"/>
                 <geom class="viz" pos="0 0 0" rgba="0.20313 0.20313 0.20313 1" quat="0 0 0 1" mesh="wheel" />
-                <geom name="l_f_wheel" class="cls" size="0.1651 0.1651 0.01" quat="0.707107 0.707106 0 0" type="ellipsoid"  />
+                <geom name="l_f_wheel" class="cls" size="0.1651 0.1651 0.01" friction="0.0, 0.0, 0.0" quat="0.707107 0.707106 0 0" type="ellipsoid" />
             </body>
             <body name="l_front_right_wheel_link" pos="0.256 -0.2854 0.03282">
                 <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="2.637" diaginertia="0.04411 0.02467 0.02467" />
                 <!-- <joint name="f-r-drive-hinge" pos="0 0 0" axis="0 1 0" /> -->
-                <joint name="l_f-r-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0"  damping="5." frictionloss="3"/>
+                <joint name="l_f-r-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0"  damping="2." frictionloss="0"/>
                 <!-- <joint name="f-r-drive-hinge" type="hinge" pos="0 0 0" axis="0 0 1" damping="0.01" limited="true" range="-40 40"/> -->
                 <geom class="viz" pos="0 0 0" rgba="0.20313 0.20313 0.20313 1" quat="0 0 0 1" mesh="wheel" />
-                <geom name="r_f_wheel" class="cls" size="0.1651 0.1651 0.01" quat="0.707107 0.707106 0 0" type="ellipsoid" />
+                <geom name="r_f_wheel" class="cls" size="0.1651 0.1651 0.01" friction="0.0, 0.0, 0.0" quat="0.707107 0.707106 0 0" type="ellipsoid"/>
                 <!-- <geom class="viz" size="0.1651 0.1651 0.01" quat="0.707107 0.707106 0 0" type="ellipsoid"/> -->
             </body>
             <body name="l_real_left_wheel_link" pos="-0.256 0.2854 0.03282">
                 <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="2.637" diaginertia="0.04411 0.02467 0.02467" />
                 <!-- <joint name="real_left_wheel" pos="0 0 0" axis="0 1 0" /> -->
                 <!-- <joint name="r-l-drive-hinge" pos="0 0 0" axis="0 1 0" /> -->
-                <joint name="l_r-l-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0" damping="5." frictionloss="3"/>
+                <joint name="l_r-l-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0" damping="2." frictionloss="0"/>
                 <geom class="viz" pos="0 0 0" rgba="0.20313 0.20313 0.20313 1" quat="0 0 0 1" mesh="wheel" />
-                <geom name="l_r_wheel" class="cls" size="0.1651 0.1651 0.01" quat="0.707107 0.707106 0 0" type="ellipsoid" />
+                <geom name="l_r_wheel" class="cls" size="0.1651 0.1651 0.01" friction="0.0, 0.0, 0.0" quat="0.707107 0.707106 0 0" type="ellipsoid"/>
             </body>
             <body name="l_real_right_wheel_link" pos="-0.256 -0.2854 0.03282">
                 <inertial pos="0 0 0" quat="0.707107 0 0 0.707107" mass="2.637" diaginertia="0.04411 0.02467 0.02467" />
                 <!-- <joint name="r-r-drive-hinge" pos="0 0 0" axis="0 1 0" /> -->
-                <joint name="l_r-r-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0"  damping="5." frictionloss="3"/>
+                <joint name="l_r-r-drive-hinge" type="hinge" pos="0 0 0" axis="0 1 0"  damping="2." frictionloss="0"/>
                 <geom class="viz" pos="0 0 0" rgba="0.20313 0.20313 0.20313 1" quat="0 0 1 0" mesh="wheel" />
-                <geom name="r_r_wheel"  class="cls" size="0.1651 0.1651 0.01" quat="0.707107 0.707106 0 0" type="ellipsoid" />
+                <geom name="r_r_wheel"  class="cls" size="0.1651 0.1651 0.01" friction="0.0, 0.0, 0.0" quat="0.707107 0.707106 0 0" type="ellipsoid"/>
             </body>
 	<body name="l_panda_link0" pos="0.35 0 0.25" quat="1 0 0 0">
 		<geom type="mesh" mesh="l_link0" rgba=".95 .99 .92 1" />
@@ -117,10 +127,15 @@
     </worldbody>
 	
     <actuator>
-        <motor name="l_f_l" joint="l_f-l-drive-hinge"/>
-        <motor name="l_f_r" joint="l_f-r-drive-hinge"/>
-        <motor name="l_l_l" joint="l_r-l-drive-hinge"/>
-        <motor name="l_l_r" joint="l_r-r-drive-hinge"/>        
+    	<position joint="base_x_slide_joint" kp="18000" name="base_x_slide_joint" user="1"/>
+        <position joint="base_y_slide_joint" kp="18000" name="base_y_slide_joint" user="1"/>
+    	<position kp="20000" joint="base_z_hinge_joint" name="base_z_hinge_joint" user="1"/> 
+        
+        <velocity name="l_f_l" joint="l_f-l-drive-hinge"/>
+        <velocity name="l_f_r" joint="l_f-r-drive-hinge"/>
+        <velocity name="l_l_l" joint="l_r-l-drive-hinge"/>
+        <velocity name="l_l_r" joint="l_r-r-drive-hinge"/>        
+
         <motor name="l_panda_joint1_Motor" joint="l_panda_joint1"/>
         <motor name="l_panda_joint2_Motor" joint="l_panda_joint2"/>
         <motor name="l_panda_joint3_Motor" joint="l_panda_joint3"/>
