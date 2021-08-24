@@ -3,7 +3,7 @@
 	<size njmax="8000" nconmax="4000"/>
 	<option timestep="0.001"/>
 	
-	<include file="../robots/l_husky_with_panda_hand.xml"/>	
+	<include file="../robots/l_husky_with_panda_welding.xml"/>	
 	<asset>
 		<texture name="floor_tex" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 .2 .3" width="100" height="100" />
 		<material name="floor_material" texture="floor_tex" texuniform="true" />
@@ -32,29 +32,49 @@
 		<light directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="-1 0 3" dir="1 0 -3"/>
 	<body>     
             <inertial pos="-1.0 -2.0 0.2" mass="10" diaginertia="1666.667 1666.667 1666.667" />
-            <geom class="cls" name ="obs1" type="box" pos="-1.0 -2.0 0.2" size="0.3 0.3 0.3" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1" contype="1" conaffinity="1"/>
-            <geom class="viz" type="box" pos="-1.0 -2.0 0.2" size="0.3 0.3 0.3" friction="1.0 1.0 1.0" rgba="1 0 0. 1"/>
+            <geom class="cls" name ="obs1" type="box" pos="-1.0 -2.0 0.3" size="0.3 0.3 0.3" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1" contype="1" conaffinity="1"/>
+            <geom class="viz" type="box" pos="-1.0 -2.0 0.3" size="0.3 0.3 0.3" friction="1.0 1.0 1.0" rgba="1 0 0. 1"/>
 	</body>
 
 	<body>     
-            <inertial pos="2.0 0.5 0.2" mass="10" diaginertia="1666.667 1666.667 1666.667" />
-            <geom class="cls" name ="obs2" type="box" pos="2.0 0.5 0.2" size="0.3 1.5 0.3" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1" contype="1" conaffinity="1"/>
-            <geom class="viz" type="box" pos="2.0 .5 0.2" size="0.3 1.5 0.3" friction="1.0 1.0 1.0" rgba="1 0 0. 1"/>
+            <inertial pos="2.0 0.5 0.3" mass="10" diaginertia="1666.667 1666.667 1666.667" />
+            <geom class="cls" name ="obs2" type="box" pos="2.0 0.5 0.3" size="0.3 1.5 0.3" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1" contype="1" conaffinity="1"/>
+            <geom class="viz" type="box" pos="2.0 .5 0.3" size="0.3 1.5 0.3" friction="1.0 1.0 1.0" rgba="1 0 0. 1"/>
 	</body>
 
 	<body>     
-            <inertial pos="-2.0 0.0 0.6" mass="10" diaginertia="1666.667 1666.667 1666.667" />
-            <geom class="cls" name ="wall" type="box" pos="-2. 0.0 0.6" size="0.1 5 1" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1" contype="1" conaffinity="1"/>
-            <geom class="viz" type="box" pos="-2. 0.0 0.6" size="0.1 5 1" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1"/>
+            <inertial pos="-1.55 0.75 0.66" mass="10" diaginertia="1666.667 1666.667 1666.667" />
+            <geom class="viz" type="box" pos="-1.55 0.75 0.65" size="0.005 0.4 0.4" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1"/>
+            <geom class="viz" type="box" pos="-1.55 -.05 0.65" size="0.005 0.4 0.4" friction="1.0 1.0 1.0" rgba="0.6 0.6 0. 1"/>
+            <geom class="viz" type="box" pos="-1.55 1.55 0.65" size="0.005 0.4 0.4" friction="1.0 1.0 1.0" rgba="0.6 0.6 0. 1"/>
+            <geom class="viz" type="box" pos="-1.55 2.35 0.65" size="0.005 0.4 0.4" friction="1.0 1.0 1.0" rgba="0.3 0.3 0. 1"/>
+          
+            
+	</body>
+	<body> 
+		<inertial pos="0 0 0.0"   mass="10" diaginertia="1666.667 1666.667 1666.667" />
+		<geom class="viz" type="cylinder" pos="-1.55 0.2 0.65" size="0.015 0.4" friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+           	<geom class="viz" type="cylinder" pos="-1.55 0.50 0.65" size="0.015 0.4" friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+           	<geom class="viz" type="cylinder" pos="-1.55 1.0 0.65" size="0.015 0.4" friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+           	<geom class="viz" type="cylinder" pos="-1.55 1.30 0.65" size="0.015 0.4" friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+           	<geom class="viz" type="cylinder" pos="-1.55 1.8 0.65" size="0.015 0.4" friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+           	<geom class="viz" type="cylinder" pos="-1.55 2.10 0.65" size="0.015 0.4" friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+     
 	</body>
 	
+	<body> 
+		<inertial pos="-1.55 1.15 0.0" euler="1.57 0 0"  mass="10" diaginertia="1666.667 1666.667 1666.667" />
+		<geom class="viz" type="cylinder" pos="-1.55 1.15 0.85" euler="1.57 0 0" size="0.015 1.6"  friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+		<geom class="viz" type="cylinder" pos="-1.55 1.15 0.65" euler="1.57 0 0" size="0.015 1.6"  friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+		<geom class="viz" type="cylinder" pos="-1.55 1.15 0.45" euler="1.57 0 0" size="0.015 1.6"  friction="1.0 1.0 1.0" rgba="0.9 0.9 0. 1"/>
+	</body>
 	</worldbody>
     <keyframe>
   
-        <key name="front" time="0" qpos ="4 -4 -0.12 0 0 0 1
+        <key name="front" time="0" qpos ="-0.9 0 -0.12 1 0 0 1
                                     0.0 0.0 
                                     0.0 0.0
-			             0.0 0.0 0.0 0.0 0.0 0.0 0.0 1.0 -1.0"/>
+			             0.0 0.0 0.0 0.0 0.0 0.0 0.0"/>
 									<!-- 0.0 0.0 0.0 -1.57 0.0 3.14 0.0"/> -->
     </keyframe>
 </mujoco>

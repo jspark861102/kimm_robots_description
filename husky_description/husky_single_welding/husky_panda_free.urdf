@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <robot name="husky">
   <material name="dark_grey">
@@ -23,6 +23,31 @@
     <color rgba="1.0 0.0 0.0 1.0"/>
   </material>
   <!-- Base link is the center of the robot's bottom plate -->
+  
+  <link name="v_x_link" />
+  <joint name="v_x_joint" type="prismatic">
+    <origin rpy="0 0 0" xyz="0 0 -0.13228"/>
+      <parent link="v_x_link"/>
+      <child link="v_y_link"/>
+      <axis xyz= "1 0 0"/>
+      <limit effort="1000.0" lower="-10000.0" upper="-10000.0" velocity="10000.0"/>
+  </joint>
+  <link name="v_y_link" />
+  <joint name="v_y_joint" type="prismatic">
+    <origin rpy="0 0 0" xyz="0 0 -0.13228"/>
+      <parent link="v_y_link"/>
+      <child link="v_t_link"/>
+      <axis xyz= "0 1 0"/>
+      <limit effort="1000.0" lower="-10000.0" upper="-10000.0" velocity="10000.0"/>
+  </joint>
+  <link name="v_t_link" />
+  <joint name="v_t_joint" type="revolute">
+    <origin rpy="0 0 0" xyz="0 0 -0.13228"/>
+      <parent link="v_t_link"/>
+      <child link="base_link"/>
+      <axis rpy="0 0 0" xyz="0 0 1"/>
+      <limit effort="1000.0" lower="-6.24" upper="6.24" velocity="10000.0"/>
+  </joint>
   <link name="base_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -37,9 +62,9 @@
       </geometry>
     </collision>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0.17562499999999998"/>
+      <origin rpy="0 0 0" xyz="0 0 0.175625"/>
       <geometry>
-        <box size="0.7899200000000001 0.5709 0.10375"/>
+        <box size="0.78992 0.5709 0.10375"/>
       </geometry>
     </collision>
   </link>
@@ -73,7 +98,7 @@
   </joint>
   <gazebo reference="imu_link">
   </gazebo>
-  <link name="husky_front_left_wheel_link">
+  <link name="front_left_wheel_link">
     <inertial>
       <mass value="2.637"/>
       <origin xyz="0 0 0"/>
@@ -92,30 +117,31 @@
       </geometry>
     </collision>
   </link>
-  <gazebo reference="husky_front_left_wheel_link">
+  <gazebo reference="front_left_wheel_link">
     <mu1 value="1.0"/>
     <mu2 value="1.0"/>
     <kp value="10000000.0"/>
     <kd value="1.0"/>
     <fdir1 value="1 0 0"/>
   </gazebo>
-  <joint name="husky_front_left_wheel" type="revolute">
+  <joint name="front_left_wheel" type="revolute">
     <parent link="base_link"/>
-    <child link="husky_front_left_wheel_link"/>
-    <origin rpy="0 0 0" xyz="0.256 0.2854 0.03282"/>
-    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <child link="front_left_wheel_link"/>
+    <origin rpy="0 0 0" xyz="0.0 0.2854 0.03282"/>
+    <axis rpy="0 0 0" xyz="0 -1 0"/>
     <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
+    <!-- <limit effort="100" lower="-100" upper="1000" lower="-1000" velocity="100"/> -->
   </joint>
-  <transmission name="husky_front_left_wheel_trans" type="SimpleTransmission">
+  <transmission name="front_left_wheel_trans" type="SimpleTransmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_front_left_wheel_motor">
+    <actuator name="front_left_wheel_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-    <joint name="husky_front_left_wheel">
+    <joint name="front_left_wheel">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
-  <link name="husky_front_right_wheel_link">
+  <link name="front_right_wheel_link">
     <inertial>
       <mass value="2.637"/>
       <origin xyz="0 0 0"/>
@@ -134,114 +160,30 @@
       </geometry>
     </collision>
   </link>
-  <gazebo reference="husky_front_right_wheel_link">
+  <gazebo reference="front_right_wheel_link">
     <mu1 value="1.0"/>
     <mu2 value="1.0"/>
     <kp value="10000000.0"/>
     <kd value="1.0"/>
     <fdir1 value="1 0 0"/>
   </gazebo>
-  <joint name="husky_front_right_wheel" type="revolute">
+  <joint name="front_right_wheel" type="revolute">
     <parent link="base_link"/>
-    <child link="husky_front_right_wheel_link"/>
-    <origin rpy="0 0 0" xyz="0.256 -0.2854 0.03282"/>
+    <child link="front_right_wheel_link"/>
+    <origin rpy="0 0 0" xyz="0.0 -0.2854 0.03282"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
   </joint>
-  <transmission name="husky_front_right_wheel_trans" type="SimpleTransmission">
+  <transmission name="front_right_wheel_trans" type="SimpleTransmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_front_right_wheel_motor">
+    <actuator name="front_right_wheel_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-    <joint name="husky_front_right_wheel">
+    <joint name="front_right_wheel">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
-  <link name="husky_rear_left_wheel_link">
-    <inertial>
-      <mass value="2.637"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467"/>
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://husky_description/meshes/wheel.dae"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.1143" radius="0.1651"/>
-      </geometry>
-    </collision>
-  </link>
-  <gazebo reference="husky_rear_left_wheel_link">
-    <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp value="10000000.0"/>
-    <kd value="1.0"/>
-    <fdir1 value="1 0 0"/>
-  </gazebo>
-  <joint name="husky_rear_left_wheel" type="revolute">
-    <parent link="base_link"/>
-    <child link="husky_rear_left_wheel_link"/>
-    <origin rpy="0 0 0" xyz="-0.256 0.2854 0.03282"/>
-    <axis rpy="0 0 0" xyz="0 1 0"/>
-    <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
-  </joint>
-  <transmission name="husky_rear_left_wheel_trans" type="SimpleTransmission">
-    <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_rear_left_wheel_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-    <joint name="husky_rear_left_wheel">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-    </joint>
-  </transmission>
-  <link name="husky_rear_right_wheel_link">
-    <inertial>
-      <mass value="2.637"/>
-      <origin xyz="0 0 0"/>
-      <inertia ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467"/>
-    </inertial>
-    <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <geometry>
-        <mesh filename="package://husky_description/meshes/wheel.dae"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
-      <geometry>
-        <cylinder length="0.1143" radius="0.1651"/>
-      </geometry>
-    </collision>
-  </link>
-  <gazebo reference="husky_rear_right_wheel_link">
-    <mu1 value="1.0"/>
-    <mu2 value="1.0"/>
-    <kp value="10000000.0"/>
-    <kd value="1.0"/>
-    <fdir1 value="1 0 0"/>
-  </gazebo>
-  <joint name="husky_rear_right_wheel" type="revolute">
-    <parent link="base_link"/>
-    <child link="husky_rear_right_wheel_link"/>
-    <origin rpy="0 0 0" xyz="-0.256 -0.2854 0.03282"/>
-    <axis rpy="0 0 0" xyz="0 1 0"/>
-    <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
-  </joint>
-  <transmission name="husky_rear_right_wheel_trans" type="SimpleTransmission">
-    <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_rear_right_wheel_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-    <joint name="husky_rear_right_wheel">
-      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-    </joint>
-  </transmission>
-  <!-- Spawn Husky chassis -->
+    <!-- Spawn Husky chassis -->
   <link name="top_chassis_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -334,13 +276,14 @@
   <joint name="panda_to_world" type="fixed">
     <parent link="base_link"/>
     <child link="panda_link0"/>
-    <origin rpy="0 0 0" xyz="0.35 0 0.22"/>
+    <origin rpy="0 0 0" xyz="0.35 0 0.25"/>
   </joint>
   <link name="panda_link0">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link0.dae"/>
       </geometry>
+      <material name="panda_gray"/>
     </visual>
     <collision>
       <geometry>
@@ -508,11 +451,8 @@
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link7.dae"/>
-        <cylinder radius="1" length="0.5"/>
-        <material name="Cyan">
-          <color rgba="0 1.0 1.0 1.0"/>
-        </material>
       </geometry>
+      <material name="panda_gray"/>
     </visual>
     <collision>
       <geometry>
@@ -535,21 +475,19 @@
     <dynamics damping="1.0" friction="0.5"/>
   </joint>
   <link name="panda_link8">
-  <visual>
-      <geometry>
-       <cylinder radius="0.005" length="0.2"/>
-        <material name="Cyan">
-          <color rgba="0.6 0.6 0.6 1.0"/>
-        </material>
-      </geometry>
-    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
   </link>
-<joint name="panda_joint8" type="fixed">
-<parent link="panda_link7"/>
-<child link="panda_link8"/>
-<axis xyz="0 0 1"/>
-<origin rpy="0 0 0" xyz="0.0 0 0.1"/>
-</joint>
-  
+  <joint name="panda_joint8" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0.107"/>
+    <parent link="panda_link7"/>
+    <child link="panda_link8"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+
+
 </robot>
 
