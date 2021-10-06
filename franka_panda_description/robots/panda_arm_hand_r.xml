@@ -1,8 +1,18 @@
 <mujoco model="panda">
     <compiler angle="radian" />
     <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="link0" file="link0.stl" />
+        <mesh name="link1" file="link1.stl" />
+        <mesh name="link2" file="link2.stl" />
+        <mesh name="link3" file="link3.stl" />
+        <mesh name="link4" file="link4.stl" />
+        <mesh name="link5" file="link5.stl" />
+        <mesh name="link6" file="link6.stl" />
+        <mesh name="link7" file="link7.stl" />
+    </asset>
     <worldbody>
-         <body name="r_panda_link0" pos="1.0 0 0.0" quat="0 0 0 1">
+         <body name="r_panda_link0" pos="-3 0 0.0" quat="0.7071 0 0 0.7071 ">
             <geom type="mesh" mesh="link0" rgba=".95 .99 .92 1"/>
         <geom type="mesh" mesh="link0" rgba=".95 .99 .92 1"/>
         <body name="r_panda_link1" pos="0 0 0.333">
