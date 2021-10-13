@@ -1,29 +1,29 @@
 <?xml version="1.0" ?>
 
-<robot name="husky">
-  <material name="dark_grey">
+<robot name="ns0_husky">
+  <material name="ns0_dark_grey">
     <color rgba="0.2 0.2 0.2 1.0"/>
   </material>
-  <material name="medium_grey">
+  <material name="ns0_medium_grey">
     <color rgba="0.6 0.6 0.6 1.0"/>
   </material>
-  <material name="light_grey">
+  <material name="ns0_light_grey">
     <color rgba="0.8 0.8 0.8 1.0"/>
   </material>
-  <material name="yellow">
+  <material name="ns0_yellow">
     <color rgba="0.8 0.8 0.0 1.0"/>
   </material>
-  <material name="black">
+  <material name="ns0_black">
     <color rgba="0.15 0.15 0.15 1.0"/>
   </material>
-  <material name="white">
+  <material name="ns0_white">
     <color rgba="1.0 1.0 1.0 1.0"/>
   </material>
-  <material name="red">
+  <material name="ns0_red">
     <color rgba="1.0 0.0 0.0 1.0"/>
   </material>
   <!-- Base link is the center of the robot's bottom plate -->
-  <link  name="rviz_base_link">
+  <link  name="ns0_rviz_base_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -44,36 +44,36 @@
     </collision>
   </link>
   <!-- Base footprint is on the ground under the robot -->
-  <link  name="rviz_base_footprint"/>
-  <joint name="base_footprint_joint" type="fixed">
+  <link  name="ns0_rviz_base_footprint"/>
+  <joint name="ns0_base_footprint_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 -0.13228"/>
-    <parent link="rviz_base_link"/>
-    <child link="rviz_base_footprint"/>
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_base_footprint"/>
   </joint>
   <!-- Inertial link stores the robot's inertial information -->
-  <link  name="rviz_inertial_link">
+  <link  name="ns0_rviz_inertial_link">
     <inertial>
       <mass value="46.034"/>
       <origin xyz="-0.00065 -0.085 0.062"/>
       <inertia ixx="0.6022" ixy="-0.02364" ixz="-0.1197" iyy="1.7386" iyz="-0.001544" izz="2.0296"/>
     </inertial>
   </link>
-  <joint name="inertial_joint" type="fixed">
+  <joint name="ns0_inertial_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="rviz_base_link"/>
-    <child link="rviz_inertial_link"/>
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_inertial_link"/>
   </joint>
   <!-- IMU Link is the standard mounting position for the UM6 IMU.-->
   <!-- Can be modified with environment variables in /etc/ros/setup.bash -->
-  <link  name="rviz_imu_link"/>
-  <joint name="imu_joint" type="fixed">
+  <link  name="ns0_rviz_imu_link"/>
+  <joint name="ns0_imu_joint" type="fixed">
     <origin rpy="0 -1.5708 3.1416" xyz="0.19 0 0.149"/>
-    <parent link="rviz_base_link"/>
-    <child link="rviz_imu_link"/>
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_imu_link"/>
   </joint>
   <gazebo reference="imu_link">
   </gazebo>
-  <link  name="rviz_husky_front_left_wheel_link">
+  <link  name="ns0_rviz_husky_front_left_wheel_link">
     <inertial>
       <mass value="2.637"/>
       <origin xyz="0 0 0"/>
@@ -99,23 +99,23 @@
     <kd value="1.0"/>
     <fdir1 value="1 0 0"/>
   </gazebo>
-  <joint name="husky_front_left_wheel" type="revolute">
-    <parent link="rviz_base_link"/>
-    <child link="rviz_husky_front_left_wheel_link"/>
+  <joint name="ns0_husky_front_left_wheel" type="revolute">
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_husky_front_left_wheel_link"/>
     <origin rpy="0 0 0" xyz="0.256 0.2854 0.03282"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
   </joint>
-  <transmission name="husky_front_left_wheel_trans" type="SimpleTransmission">
+  <transmission name="ns0_husky_front_left_wheel_trans" type="SimpleTransmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_front_left_wheel_motor">
+    <actuator name="ns0_husky_front_left_wheel_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-    <joint name="husky_front_left_wheel">
+    <joint name="ns0_husky_front_left_wheel">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
-  <link  name="rviz_husky_front_right_wheel_link">
+  <link  name="ns0_rviz_husky_front_right_wheel_link">
     <inertial>
       <mass value="2.637"/>
       <origin xyz="0 0 0"/>
@@ -141,23 +141,23 @@
     <kd value="1.0"/>
     <fdir1 value="1 0 0"/>
   </gazebo>
-  <joint name="husky_front_right_wheel" type="revolute">
-    <parent link="rviz_base_link"/>
-    <child link="rviz_husky_front_right_wheel_link"/>
+  <joint name="ns0_husky_front_right_wheel" type="revolute">
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_husky_front_right_wheel_link"/>
     <origin rpy="0 0 0" xyz="0.256 -0.2854 0.03282"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
   </joint>
-  <transmission name="husky_front_right_wheel_trans" type="SimpleTransmission">
+  <transmission name="ns0_husky_front_right_wheel_trans" type="SimpleTransmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_front_right_wheel_motor">
+    <actuator name="ns0_husky_front_right_wheel_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-    <joint name="husky_front_right_wheel">
+    <joint name="ns0_husky_front_right_wheel">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
-  <link  name="rviz_husky_rear_left_wheel_link">
+  <link  name="ns0_rviz_husky_rear_left_wheel_link">
     <inertial>
       <mass value="2.637"/>
       <origin xyz="0 0 0"/>
@@ -183,23 +183,23 @@
     <kd value="1.0"/>
     <fdir1 value="1 0 0"/>
   </gazebo>
-  <joint name="husky_rear_left_wheel" type="revolute">
-    <parent link="rviz_base_link"/>
-    <child link="rviz_husky_rear_left_wheel_link"/>
+  <joint name="ns0_husky_rear_left_wheel" type="revolute">
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_husky_rear_left_wheel_link"/>
     <origin rpy="0 0 0" xyz="-0.256 0.2854 0.03282"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
   </joint>
-  <transmission name="husky_rear_left_wheel_trans" type="SimpleTransmission">
+  <transmission name="ns0_husky_rear_left_wheel_trans" type="SimpleTransmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_rear_left_wheel_motor">
+    <actuator name="ns0_husky_rear_left_wheel_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-    <joint name="husky_rear_left_wheel">
+    <joint name="ns0_husky_rear_left_wheel">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
-  <link  name="rviz_husky_rear_right_wheel_link">
+  <link  name="ns0_rviz_husky_rear_right_wheel_link">
     <inertial>
       <mass value="2.637"/>
       <origin xyz="0 0 0"/>
@@ -225,24 +225,24 @@
     <kd value="1.0"/>
     <fdir1 value="1 0 0"/>
   </gazebo>
-  <joint name="husky_rear_right_wheel" type="revolute">
-    <parent link="rviz_base_link"/>
-    <child link="rviz_husky_rear_right_wheel_link"/>
+  <joint name="ns0_husky_rear_right_wheel" type="revolute">
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_husky_rear_right_wheel_link"/>
     <origin rpy="0 0 0" xyz="-0.256 -0.2854 0.03282"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
   </joint>
-  <transmission name="husky_rear_right_wheel_trans" type="SimpleTransmission">
+  <transmission name="ns0_husky_rear_right_wheel_trans" type="SimpleTransmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_rear_right_wheel_motor">
+    <actuator name="ns0_husky_rear_right_wheel_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-    <joint name="husky_rear_right_wheel">
+    <joint name="ns0_husky_rear_right_wheel">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- Spawn Husky chassis -->
-  <link  name="rviz_top_chassis_link">
+  <link  name="ns0_rviz_top_chassis_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -251,12 +251,12 @@
     </visual>
   </link>
   <!-- Attach chassis to the robot -->
-  <joint name="top_chassis_joint" type="fixed">
-    <parent link="rviz_base_link"/>
-    <child link="rviz_top_chassis_link"/>
+  <joint name="ns0_top_chassis_joint" type="fixed">
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_top_chassis_link"/>
   </joint>
   <!-- Spawn user rails -->
-  <link  name="rviz_user_rail_link">
+  <link  name="ns0_rviz_user_rail_link">
     <visual>
       <geometry>
         <mesh filename="package://husky_description/meshes/user_rail.dae"/>
@@ -264,13 +264,13 @@
     </visual>
   </link>
   <!-- Attach user rails to base link -->
-  <joint name="user_rail" type="fixed">
+  <joint name="ns0_user_rail" type="fixed">
     <origin rpy="0 0 0" xyz="0.272 0 0.245"/>
-    <parent link="rviz_base_link"/>
-    <child link="rviz_user_rail_link"/>
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_user_rail_link"/>
   </joint>
   <!-- Spawn front bumper link -->
-  <link  name="rviz_front_bumper_link">
+  <link  name="ns0_rviz_front_bumper_link">
     <visual>
       <geometry>
         <mesh filename="package://husky_description/meshes/bumper.dae"/>
@@ -278,17 +278,17 @@
     </visual>
   </link>
   <!-- Attach front bumper -->
-  <joint name="front_bumper" type="fixed">
+  <joint name="ns0_front_bumper" type="fixed">
     <origin rpy="0 0 0" xyz="0.48 0 0.091"/>
-    <parent link="rviz_base_link"/>
-    <child link="rviz_front_bumper_link"/>
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_front_bumper_link"/>
   </joint>
-  <joint name="velodyne_joint" type="fixed">
+  <joint name="ns0_velodyne_joint" type="fixed">
     <origin rpy="0 0 0" xyz="-0.2 0 0.75"/>
-    <parent link="rviz_base_link"/>
-    <child link="velodyne"/>
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_velodyne"/>
   </joint>
-  <link  name="velodyne">
+  <link  name="ns0_velodyne">
       <visual>
         <geometry>
           <mesh filename="package://velodyne_description/meshes/VLP16_base_1.dae" />
@@ -301,7 +301,7 @@
       </visual>
   </link>
   <!-- Spawn rear bumper link -->
-  <link  name="rviz_rear_bumper_link">
+  <link  name="ns0_rviz_rear_bumper_link">
     <visual>
       <geometry>
         <mesh filename="package://husky_description/meshes/bumper.dae"/>
@@ -309,12 +309,12 @@
     </visual>
   </link>
   <!-- Attach rear bumper -->
-  <joint name="rear_bumper" type="fixed">
+  <joint name="ns0_rear_bumper" type="fixed">
     <origin rpy="0 0 3.14159" xyz="-0.48 0 0.091"/>
-    <parent link="rviz_base_link"/>
-    <child link="rviz_rear_bumper_link"/>
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_rear_bumper_link"/>
   </joint>
-  <link  name="rviz_top_plate_link">
+  <link  name="ns0_rviz_top_plate_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
@@ -329,31 +329,31 @@
     </collision>
   </link>
   <!-- Attach top plate -->
-  <joint name="top_plate_joint" type="fixed">
-    <parent link="rviz_base_link"/>
-    <child link="rviz_top_plate_link"/>
+  <joint name="ns0_top_plate_joint" type="fixed">
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_top_plate_link"/>
     <origin rpy="0 0 0" xyz="0.0812 0 0.245"/>
   </joint>
   <!-- Top plate front link -->
-  <joint name="top_plate_front_joint" type="fixed">
-    <parent link="rviz_top_plate_link"/>
-    <child link="rviz_top_plate_front_link"/>
+  <joint name="ns0_top_plate_front_joint" type="fixed">
+    <parent link="ns0_rviz_top_plate_link"/>
+    <child link="ns0_rviz_top_plate_front_link"/>
     <origin rpy="0 0 0" xyz="0.36367 0 0.00639"/>
   </joint>
   <!-- Top plate rear link-->
-  <joint name="top_plate_rear_joint" type="fixed">
-    <parent link="rviz_top_plate_link"/>
-    <child link="rviz_top_plate_rear_link"/>
+  <joint name="ns0_top_plate_rear_joint" type="fixed">
+    <parent link="ns0_rviz_top_plate_link"/>
+    <child link="ns0_rviz_top_plate_rear_link"/>
     <origin rpy="0 0 0" xyz="-0.36633 0 0.00639"/>
   </joint>
-  <link  name="rviz_top_plate_front_link"/>
-  <link  name="rviz_top_plate_rear_link"/>
-  <joint name="panda_to_world" type="fixed">
-    <parent link="rviz_base_link"/>
-    <child link="rviz_panda_link0"/>
+  <link  name="ns0_rviz_top_plate_front_link"/>
+  <link  name="ns0_rviz_top_plate_rear_link"/>
+  <joint name="ns0_panda_to_world" type="fixed">
+    <parent link="ns0_rviz_base_link"/>
+    <child link="ns0_rviz_panda_link0"/>
     <origin rpy="0 0 0" xyz="0.35 0 0.25"/>
   </joint>
-  <link  name="rviz_panda_link0">
+  <link  name="ns0_rviz_panda_link0">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link0.dae"/>
@@ -365,7 +365,7 @@
       </geometry>
     </collision>
   </link>
-  <link  name="rviz_panda_link1">
+  <link  name="ns0_rviz_panda_link1">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link1.dae"/>
@@ -382,16 +382,16 @@
       <inertia ixx="7.0337e-01" ixy="-1.3900e-04" ixz="6.7720e-03" iyy="7.0661e-01" iyz="1.9169e-02" izz="9.1170e-03"/>
     </inertial>
   </link>
-  <joint name="panda_joint1" type="revolute">
+  <joint name="ns0_panda_joint1" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
     <origin rpy="0 0 0" xyz="0 0 0.333"/>
-    <parent link="rviz_panda_link0"/>
-    <child link="rviz_panda_link1"/>
+    <parent link="ns0_rviz_panda_link0"/>
+    <child link="ns0_rviz_panda_link1"/>
     <axis xyz="0 0 1"/>
     <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
     <dynamics damping="10.0" friction="5.0"/>
   </joint>
-  <link  name="rviz_panda_link2">
+  <link  name="ns0_rviz_panda_link2">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link2.dae"/>
@@ -408,16 +408,16 @@
       <inertia ixx="7.9620e-03" ixy="-3.9250e-03" ixz="1.0254e-02" iyy="2.8110e-02" iyz="7.0400e-04" izz="2.5995e-02"/>
     </inertial>
   </link>
-  <joint name="panda_joint2" type="revolute">
+  <joint name="ns0_panda_joint2" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.7628" soft_upper_limit="1.7628"/>
     <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
-    <parent link="rviz_panda_link1"/>
-    <child link="rviz_panda_link2"/>
+    <parent link="ns0_rviz_panda_link1"/>
+    <child link="ns0_rviz_panda_link2"/>
     <axis xyz="0 0 1"/>
     <limit effort="87" lower="-1.7628" upper="1.7628" velocity="2.1750"/>
     <dynamics damping="5.0" friction="2.0"/>
   </joint>
-  <link  name="rviz_panda_link3">
+  <link  name="ns0_rviz_panda_link3">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link3.dae"/>
@@ -434,16 +434,16 @@
       <inertia ixx="3.7242e-02" ixy="-4.7610e-03" ixz="-1.1396e-02" iyy="3.6155e-02" iyz="-1.2805e-02" izz="1.0830e-02"/>
     </inertial>
   </link>
-  <joint name="panda_joint3" type="revolute">
+  <joint name="ns0_panda_joint3" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
     <origin rpy="1.57079632679 0 0" xyz="0 -0.316 0"/>
-    <parent link="rviz_panda_link2"/>
-    <child link="rviz_panda_link3"/>
+    <parent link="ns0_rviz_panda_link2"/>
+    <child link="ns0_rviz_panda_link3"/>
     <axis xyz="0 0 1"/>
     <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
     <dynamics damping="5.0" friction="2.0"/>
   </joint>
-  <link  name="rviz_panda_link4">
+  <link  name="ns0_rviz_panda_link4">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link4.dae"/>
@@ -460,16 +460,16 @@
       <inertia ixx="2.5853e-02" ixy="7.7960e-03" ixz="-1.3320e-03" iyy="1.9552e-02" iyz="8.6410e-03" izz="2.8323e-02"/>
     </inertial>
   </link>
-  <joint name="panda_joint4" type="revolute">
+  <joint name="ns0_panda_joint4" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="-0.0698"/>
     <origin rpy="1.57079632679 0 0" xyz="0.0825 0 0"/>
-    <parent link="rviz_panda_link3"/>
-    <child link="rviz_panda_link4"/>
+    <parent link="ns0_rviz_panda_link3"/>
+    <child link="ns0_rviz_panda_link4"/>
     <axis xyz="0 0 1"/>
     <limit effort="87" lower="-3.0718" upper="-0.0698" velocity="2.1750"/>
     <dynamics damping="1.0" friction="0.5"/>
   </joint>
-  <link  name="rviz_panda_link5">
+  <link  name="ns0_rviz_panda_link5">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link5.dae"/>
@@ -486,16 +486,16 @@
       <inertia ixx="3.5549e-02" ixy="-2.1170e-03" ixz="-4.0370e-03" iyy="2.9474e-02" iyz="2.2900e-04" izz="8.6270e-03"/>
     </inertial>
   </link>
-  <joint name="panda_joint5" type="revolute">
+  <joint name="ns0_panda_joint5" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
     <origin rpy="-1.57079632679 0 0" xyz="-0.0825 0.384 0"/>
-    <parent link="rviz_panda_link4"/>
-    <child link="rviz_panda_link5"/>
+    <parent link="ns0_rviz_panda_link4"/>
+    <child link="ns0_rviz_panda_link5"/>
     <axis xyz="0 0 1"/>
     <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
     <dynamics damping="2.0" friction="1.0"/>
   </joint>
-  <link  name="rviz_panda_link6">
+  <link  name="ns0_rviz_panda_link6">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link6.dae"/>
@@ -512,16 +512,16 @@
       <inertia ixx="1.9640e-03" ixy="1.0900e-04" ixz="-1.1580e-03" iyy="4.3540e-03" iyz="3.4100e-04" izz="5.4330e-03"/>
     </inertial>
   </link>
-  <joint name="panda_joint6" type="revolute">
+  <joint name="ns0_panda_joint6" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525"/>
     <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
-    <parent link="rviz_panda_link5"/>
-    <child link="rviz_panda_link6"/>
+    <parent link="ns0_rviz_panda_link5"/>
+    <child link="ns0_rviz_panda_link6"/>
     <axis xyz="0 0 1"/>
     <limit effort="12" lower="-0.0175" upper="3.7525" velocity="2.6100"/>
     <dynamics damping="1.0" friction="0.5"/>
   </joint>
-  <link  name="rviz_panda_link7">
+  <link  name="ns0_rviz_panda_link7">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link7.dae"/>
@@ -538,34 +538,34 @@
       <inertia ixx="1.2516e-02" ixy="-4.2800e-04" ixz="-1.1960e-03" iyy="1.0027e-02" iyz="-7.4100e-04" izz="4.8150e-03"/>
     </inertial>
   </link>
-  <joint name="panda_joint7" type="revolute">
+  <joint name="ns0_panda_joint7" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
     <origin rpy="1.57079632679 0 0" xyz="0.088 0 0"/>
-    <parent link="rviz_panda_link6"/>
-    <child link="rviz_panda_link7"/>
+    <parent link="ns0_rviz_panda_link6"/>
+    <child link="ns0_rviz_panda_link7"/>
     <axis xyz="0 0 1"/>
     <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
     <dynamics damping="1.0" friction="0.5"/>
   </joint>
-  <link  name="rviz_panda_link8">
+  <link  name="ns0_rviz_panda_link8">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.0"/>
       <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
     </inertial>
   </link>
-  <joint name="panda_joint8" type="fixed">
+  <joint name="ns0_panda_joint8" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.107"/>
-    <parent link="rviz_panda_link7"/>
-    <child link="rviz_panda_link8"/>
+    <parent link="ns0_rviz_panda_link7"/>
+    <child link="ns0_rviz_panda_link8"/>
     <axis xyz="0 0 0"/>
   </joint>
-  <joint name="panda_hand_joint" type="fixed">
-    <parent link="rviz_panda_link8"/>
-    <child link="rviz_panda_hand"/>
+  <joint name="ns0_panda_hand_joint" type="fixed">
+    <parent link="ns0_rviz_panda_link8"/>
+    <child link="ns0_rviz_panda_hand"/>
     <origin rpy="0 0 -0.785398163397" xyz="0.0 0 0"/>
   </joint>
-  <link  name="rviz_panda_hand">
+  <link  name="ns0_rviz_panda_hand">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/hand.dae"/>
@@ -582,7 +582,7 @@
       <inertia ixx="0.00278560230025" ixy="0.0" ixz="0.0" iyy="0.000400033405336" iyz="0.0" izz="0.00256378041832"/>
     </inertial>
   </link>
-  <link  name="rviz_panda_leftfinger">
+  <link  name="ns0_rviz_panda_leftfinger">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/finger.dae"/>
@@ -599,7 +599,7 @@
       <inertia ixx="3.01220925051e-05" ixy="0.0" ixz="0.0" iyy="2.95873808038e-05" iyz="0.0" izz="6.95125211657e-06"/>
     </inertial>
   </link>
-  <link  name="rviz_panda_rightfinger">
+  <link  name="ns0_rviz_panda_rightfinger">
     <visual>
       <origin rpy="0 0 3.14159265359" xyz="0 0 0"/>
       <geometry>
@@ -618,17 +618,17 @@
       <inertia ixx="3.01220925051e-05" ixy="0.0" ixz="0.0" iyy="2.95873808038e-05" iyz="0.0" izz="6.95125211657e-06"/>
     </inertial>
   </link>
-  <joint name="panda_finger_joint1" type="prismatic">
-    <parent link="rviz_panda_hand"/>
-    <child link="rviz_panda_leftfinger"/>
+  <joint name="ns0_panda_finger_joint1" type="prismatic">
+    <parent link="ns0_rviz_panda_hand"/>
+    <child link="ns0_rviz_panda_leftfinger"/>
     <origin rpy="0 0 0" xyz="0 0 0.0584"/>
     <axis xyz="0 1 0"/>
     <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
     <dynamics damping="500.0" friction="0.0"/>
   </joint>
-  <joint name="panda_finger_joint2" type="prismatic">
-    <parent link="rviz_panda_hand"/>
-    <child link="rviz_panda_rightfinger"/>
+  <joint name="ns0_panda_finger_joint2" type="prismatic">
+    <parent link="ns0_rviz_panda_hand"/>
+    <child link="ns0_rviz_panda_rightfinger"/>
     <origin rpy="0 0 0" xyz="0 0 0.0584"/>
     <axis xyz="0 -1 0"/>
     <limit effort="20" lower="0.0" upper="0.04" velocity="0.2"/>
