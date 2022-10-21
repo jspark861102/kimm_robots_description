@@ -9,7 +9,7 @@
   <joint name="panda_to_world" type="fixed">
     <parent link="world"/>
     <child link="panda_link0"/>
-    <origin rpy="0 0 0" xyz="-1 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
   <link name="panda_link0">
     <visual>
