@@ -283,7 +283,7 @@
     <parent link="ns0_rviz_base_link"/>
     <child link="ns0_rviz_front_bumper_link"/>
   </joint>
-  <joint name="ns0_velodyne_joint" type="fixed">
+  <!-- <joint name="ns0_velodyne_joint" type="fixed">
     <origin rpy="0 0 0" xyz="-0.2 0 0.75"/>
     <parent link="ns0_rviz_base_link"/>
     <child link="ns0_velodyne"/>
@@ -299,7 +299,7 @@
           <mesh filename="package://velodyne_description/meshes/VLP16_base_2.dae" />
         </geometry>
       </visual>
-  </link>
+  </link> -->
   <!-- Spawn rear bumper link -->
   <link  name="ns0_rviz_rear_bumper_link">
     <visual>
