@@ -53,7 +53,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   
   <link name="v_x_link" />
   <joint name="v_x_joint" type="prismatic">
-    <origin rpy="0 0 0" xyz="0 0 -0.13228"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0"/>
       <parent link="v_x_link"/>
       <child link="v_y_link"/>
       <axis xyz= "1 0 0"/>
@@ -61,7 +61,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   </joint>
   <link name="v_y_link" />
   <joint name="v_y_joint" type="prismatic">
-    <origin rpy="0 0 0" xyz="0 0 -0.13228"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0"/>
       <parent link="v_y_link"/>
       <child link="v_t_link"/>
       <axis xyz= "0 1 0"/>
@@ -69,7 +69,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   </joint>
   <link name="v_t_link" />
   <joint name="v_t_joint" type="revolute">
-    <origin rpy="0 0 0" xyz="0 0 -0.13228"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0"/>
       <parent link="v_t_link"/>
       <child link="base_link"/>
       <axis rpy="0 0 0" xyz="0 0 1"/>
@@ -168,7 +168,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
-  <link name="husky_right_left_wheel_link">
+  <link name="husky_front_right_wheel_link">
     <inertial>
       <mass value="2.637"/>
       <origin xyz="0 0 0"/>
@@ -187,26 +187,26 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       </geometry>
     </collision>
   </link>
-  <gazebo reference="husky_right_left_wheel_link">
+  <gazebo reference="husky_front_right_wheel_link">
     <mu1 value="1.0"/>
     <mu2 value="1.0"/>
     <kp value="10000000.0"/>
     <kd value="1.0"/>
     <fdir1 value="1 0 0"/>
   </gazebo>
-  <joint name="husky_right_left_wheel" type="revolute">
+  <joint name="husky_front_right_wheel" type="revolute">
     <parent link="base_link"/>
-    <child link="husky_right_left_wheel_link"/>
+    <child link="husky_front_right_wheel_link"/>
     <origin rpy="0 0 0" xyz="0.0 -0.2854 0.03282"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
     <limit effort="1000" lower="-1000" upper="1000" velocity="100"/>
   </joint>
-  <transmission name="husky_right_left_wheel_trans" type="SimpleTransmission">
+  <transmission name="husky_front_right_wheel_trans" type="SimpleTransmission">
     <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="husky_right_left_wheel_motor">
+    <actuator name="husky_front_right_wheel_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-    <joint name="husky_right_left_wheel">
+    <joint name="husky_front_right_wheel">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
   </transmission>
