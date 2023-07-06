@@ -10,6 +10,7 @@
         <material name="floorplane" reflectance="0.5" texrepeat="1 1" texture="texplane" texuniform="true"/>
     </asset>
     <include file="panda_arm_2f_85.xml"></include>
+    <include file="panda_arm_2f_85(notworking).xml"></include>
     <!-- <include file="panda_arm_hand_l.xml"></include> -->
    
     <default>
