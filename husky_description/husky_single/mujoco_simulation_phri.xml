@@ -3,7 +3,7 @@
 	<size njmax="8000" nconmax="4000"/>
 	<option timestep="0.001"/>
 	
-	<include file="../robots/l_husky_with_panda_hand.xml"/>	
+	<include file="../husky_single/husky_panda_hand.xml"/>	
 	<asset>
 		<texture name="floor_tex" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 .2 .3" width="100" height="100" />
 		<material name="floor_material" texture="floor_tex" texuniform="true" />
