@@ -8,10 +8,10 @@
   <link name="world"/>
   <joint name="panda_to_world" type="fixed">
     <parent link="world"/>
-    <child link="panda_link0"/>
+    <child link="m_panda_link0"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
-  <link name="panda_link0">
+  <link name="m_panda_link0">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link0.dae"/>
@@ -23,7 +23,7 @@
       </geometry>
     </collision>
   </link>
-  <link name="panda_link1">
+  <link name="m_panda_link1">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link1.dae"/>
@@ -43,13 +43,13 @@
   <joint name="panda_joint1" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
     <origin rpy="0 0 0" xyz="0 0 0.333"/>
-    <parent link="panda_link0"/>
-    <child link="panda_link1"/>
+    <parent link="m_panda_link0"/>
+    <child link="m_panda_link1"/>
     <axis xyz="0 0 1"/>
     <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
     <dynamics damping="10.0" friction="5.0"/>
   </joint>
-  <link name="panda_link2">
+  <link name="m_panda_link2">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link2.dae"/>
@@ -70,13 +70,13 @@
     <!-- <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.7628" soft_upper_limit="1.7628"/> -->
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-1.8317" soft_upper_limit="1.8317"/>
     <origin rpy="-1.57079632679 0 0" xyz="0 0 0"/>
-    <parent link="panda_link1"/>
-    <child link="panda_link2"/>
+    <parent link="m_panda_link1"/>
+    <child link="m_panda_link2"/>
     <axis xyz="0 0 1"/>
     <limit effort="87" lower="-1.7628" upper="1.7628" velocity="2.1750"/>
     <dynamics damping="5.0" friction="2.0"/>
   </joint>
-  <link name="panda_link3">
+  <link name="m_panda_link3">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link3.dae"/>
@@ -96,13 +96,13 @@
   <joint name="panda_joint3" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
     <origin rpy="1.57079632679 0 0" xyz="0 -0.316 0"/>
-    <parent link="panda_link2"/>
-    <child link="panda_link3"/>
+    <parent link="m_panda_link2"/>
+    <child link="m_panda_link3"/>
     <axis xyz="0 0 1"/>
     <limit effort="87" lower="-2.8973" upper="2.8973" velocity="2.1750"/>
     <dynamics damping="5.0" friction="2.0"/>
   </joint>
-  <link name="panda_link4">
+  <link name="m_panda_link4">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link4.dae"/>
@@ -123,13 +123,13 @@
     <!-- <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="-0.0698"/> -->
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0718" soft_upper_limit="-0.1221"/>
     <origin rpy="1.57079632679 0 0" xyz="0.0825 0 0"/>
-    <parent link="panda_link3"/>
-    <child link="panda_link4"/>
+    <parent link="m_panda_link3"/>
+    <child link="m_panda_link4"/>
     <axis xyz="0 0 1"/>
     <limit effort="87" lower="-3.0718" upper="-0.0698" velocity="2.1750"/>
     <dynamics damping="1.0" friction="0.5"/>
   </joint>
-  <link name="panda_link5">
+  <link name="m_panda_link5">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link5.dae"/>
@@ -149,13 +149,13 @@
   <joint name="panda_joint5" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/>
     <origin rpy="-1.57079632679 0 0" xyz="-0.0825 0.384 0"/>
-    <parent link="panda_link4"/>
-    <child link="panda_link5"/>
+    <parent link="m_panda_link4"/>
+    <child link="m_panda_link5"/>
     <axis xyz="0 0 1"/>
     <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
     <dynamics damping="2.0" friction="1.0"/>
   </joint>
-  <link name="panda_link6">
+  <link name="m_panda_link6">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link6.dae"/>
@@ -176,13 +176,13 @@
     <!-- <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525"/> -->
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="0.4361" soft_upper_limit="4.6228"/>
     <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
-    <parent link="panda_link5"/>
-    <child link="panda_link6"/>
+    <parent link="m_panda_link5"/>
+    <child link="m_panda_link6"/>
     <axis xyz="0 0 1"/>
     <limit effort="12" lower="-0.0175" upper="3.7525" velocity="2.6100"/>
     <dynamics damping="1.0" friction="0.5"/>
   </joint>
-  <link name="panda_link7">
+  <link name="m_panda_link7">
     <visual>
       <geometry>
         <mesh filename="package://franka_panda_description/meshes/visual/link7.dae"/>
@@ -203,13 +203,13 @@
     <!-- <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-2.8973" soft_upper_limit="2.8973"/> -->
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-3.0528" soft_upper_limit="3.0528"/>
     <origin rpy="1.57079632679 0 0" xyz="0.088 0 0"/>
-    <parent link="panda_link6"/>
-    <child link="panda_link7"/>
+    <parent link="m_panda_link6"/>
+    <child link="m_panda_link7"/>
     <axis xyz="0 0 1"/>
     <limit effort="12" lower="-2.8973" upper="2.8973" velocity="2.6100"/>
     <dynamics damping="1.0" friction="0.5"/>
   </joint>
-  <link name="panda_link8">
+  <link name="m_panda_link8">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.01"/>
@@ -218,19 +218,19 @@
   </link>
   <joint name="panda_joint8" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0.107"/>
-    <parent link="panda_link7"/>
-    <child link="panda_link8"/>
+    <parent link="m_panda_link7"/>
+    <child link="m_panda_link8"/>
     <axis xyz="0 0 0"/>
   </joint>
 
   <!-- robotiq 2f-85 gripper -->
-  <joint name="panda_robotiq_attachment_joint" type="fixed">    
+  <joint name="panda_robotiq_attachment_joint" type="fixed">
     <origin xyz="0 0 0" rpy="0 0 0.0"/>
-    <parent link="panda_link8"/>
-    <child link="robotiq_85_base_link"/>
+    <parent link="m_panda_link8"/>
+    <child link="m_robotiq_85_base_link"/>
     <axis xyz="0 0 0"/>
   </joint>  
-  <link name="robotiq_85_base_link">
+  <link name="m_robotiq_85_base_link">
     <inertial>
       <origin xyz="0.00021987 -2.3546E-10 0.030163" rpy="0 0 0" />
       <!-- <mass value="0.30915" /> -->
@@ -255,7 +255,7 @@
       </geometry>
     </collision>
   </link>
-  <link name="left_outer_knuckle">
+  <link name="m_left_outer_knuckle">
     <inertial>
       <origin
         xyz="0.0178331863169983 3.68915177224286E-11 0.0021442477325704" rpy="0 0 0" />
@@ -280,14 +280,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="finger_joint" type="revolute">
+  <joint name="finger_joint" type="fixed">
     <origin xyz="0.0306011444260539 0 0.0627920162695395" rpy="0 0 0" />
-    <parent link="robotiq_85_base_link" />
-    <child link="left_outer_knuckle" />
+    <parent link="m_robotiq_85_base_link" />
+    <child link="m_left_outer_knuckle" />
     <axis xyz="0 -1 0" />
     <limit lower="0" upper="0.725" velocity="2.0" effort="1000" />
   </joint>
-  <link name="left_outer_finger">
+  <link name="m_left_outer_finger">
     <inertial>
       <origin xyz="0.00131451599174296 2.88942057994543E-15 0.0215404163180413" rpy="0 0 0" />
       <mass value="0.0273093985570947" />
@@ -313,11 +313,11 @@
   </link>
   <joint name="left_outer_finger_joint" type="fixed">
     <origin xyz="0.0316910442266543 0 -0.00193396375724605" rpy="0 0 0" />
-    <parent link="left_outer_knuckle" />
-    <child link="left_outer_finger" />
+    <parent link="m_left_outer_knuckle" />
+    <child link="m_left_outer_finger" />
     <axis xyz="0 -1 0" />
   </joint>
-  <link name="left_inner_knuckle">
+  <link name="m_left_inner_knuckle">
     <inertial>
       <origin xyz="0.017097546626628 -3.93808524389535E-10 0.0224918438201868" rpy="0 0 0" />
       <mass value="0.0110930853895903" />
@@ -342,15 +342,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="left_inner_knuckle_joint" type="revolute">
+  <joint name="left_inner_knuckle_joint" type="fixed">
     <origin xyz="0.0127000000001501 0 0.0693074999999639" rpy="0 0 0" />
-    <parent link="robotiq_85_base_link" />
-    <child link="left_inner_knuckle" />
+    <parent link="m_robotiq_85_base_link" />
+    <child link="m_left_inner_knuckle" />
     <axis xyz="0 -1 0" />
     <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
     <mimic  joint="finger_joint" multiplier="1" offset="0" />
   </joint>
-  <link name="left_inner_finger">
+  <link name="m_left_inner_finger">
     <inertial>
       <origin xyz="0.0060275613594574 -6.29183141465421E-15 0.00669925693133241" rpy="0 0 0" />
       <mass value="0.00724255346165745" />
@@ -374,15 +374,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="left_inner_finger_joint" type="revolute">
+  <joint name="left_inner_finger_joint" type="fixed">
     <origin xyz="0.034585310861294 0 0.0454970193817975" rpy="0 0 0" />
-    <parent link="left_inner_knuckle" />
-    <child link="left_inner_finger" />
+    <parent link="m_left_inner_knuckle" />
+    <child link="m_left_inner_finger" />
     <axis xyz="0 -1 0" />
     <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
     <mimic joint="finger_joint" multiplier="-1" offset="0" />
   </joint>
-  <link name="right_inner_knuckle">
+  <link name="m_right_inner_knuckle">
     <inertial>
       <origin xyz="0.0168606186773776 3.93808471820465E-10 0.0226699950793434" rpy="0 0 0" />
       <mass value="0.0110930853895903" />
@@ -406,15 +406,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_inner_knuckle_joint" type="revolute">
+  <joint name="right_inner_knuckle_joint" type="fixed">
     <origin xyz="-0.0126999999998499 0 0.0693075000000361" rpy="0 0 3.14159265358979" />
-    <parent link="robotiq_85_base_link" />
-    <child link="right_inner_knuckle" />
+    <parent link="m_robotiq_85_base_link" />
+    <child link="m_right_inner_knuckle" />
     <axis xyz="0 1 0" />
     <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
     <mimic joint="finger_joint" multiplier="-1" offset="0" />
   </joint>
-  <link name="right_inner_finger">
+  <link name="m_right_inner_finger">
     <inertial>
       <origin xyz="0.00602756228812038 -6.47284509480176E-15 0.00669925609578108" rpy="0 0 0" />
       <mass value="0.00724255346165744" />
@@ -438,15 +438,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_inner_finger_joint" type="revolute">
+  <joint name="right_inner_finger_joint" type="fixed">
     <origin xyz="0.0341060475457406 0 0.0458573878541688" rpy="0 0 0" />
-    <parent link="right_inner_knuckle" />
-    <child link="right_inner_finger" />
+    <parent link="m_right_inner_knuckle" />
+    <child link="m_right_inner_finger" />
     <axis xyz="0 1 0" />
     <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
     <mimic joint="finger_joint" multiplier="1" offset="0" />
   </joint>
-  <link name="right_outer_knuckle">
+  <link name="m_right_outer_knuckle">
     <inertial>
       <origin xyz="0.0178097074051638 3.60493211424024E-11 0.00233123458346721" rpy="0 0 0" />
       <mass value="0.00684838849401352" />
@@ -470,15 +470,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="right_outer_knuckle_joint" type="revolute">
+  <joint name="right_outer_knuckle_joint" type="fixed">
     <origin xyz="-0.0306011444258893 0 0.0627920162695395" rpy="0 0 3.14159265358979" />
-    <parent link="robotiq_85_base_link" />
-    <child link="right_outer_knuckle" />
+    <parent link="m_robotiq_85_base_link" />
+    <child link="m_right_outer_knuckle" />
     <axis xyz="0 1 0" />
     <limit lower="0" upper="0.8757" velocity="2.0" effort="1000" />
     <mimic joint="finger_joint" multiplier="-1" offset="0" />
   </joint>
-  <link name="right_outer_finger">
+  <link name="m_right_outer_finger">
     <inertial>
       <origin xyz="0.00108844269639009 -2.611488350845E-15 0.0215530225245502" rpy="0 0 0" />
       <mass value="0.0273093985570947" />
@@ -504,18 +504,18 @@
   </link>
   <joint name="right_outer_finger_joint" type="fixed">
     <origin xyz="0.0317095909367246 0 -0.0016013564954687" rpy="0 0 0" />
-    <parent link="right_outer_knuckle" />
-    <child link="right_outer_finger" />
+    <parent link="m_right_outer_knuckle" />
+    <child link="m_right_outer_finger" />
     <axis xyz="0 1 0" />
   </joint>  
 
   <!-- CAMERA JIG-->
   <joint name="camera_jig_joint" type="fixed">
       <origin rpy="0.0 0.0 0" xyz="0.0 0 0.0" />
-      <parent link="robotiq_85_base_link" />
-      <child link="camera_jig_link" />
+      <parent link="m_robotiq_85_base_link" />
+      <child link="m_camera_jig_link" />
   </joint>
-  <link name="camera_jig_link" />
+  <link name="m_camera_jig_link" />
       <inertial>          
           <!-- <mass value="0.328" /> -->
           <mass value="0.038" />  <!--new version-->
@@ -526,19 +526,19 @@
       <color rgba="0.5 0.5 0.5 1" />
   </material>
   <!-- camera body, with origin at bottom screw mount -->
-  <joint name="camera_joint" type="fixed">      
+  <joint name="camera_joint" type="fixed">
       <!-- <origin rpy="3.14 -1.57 -1.57" xyz="0.0 -0.09 0.085" /> -->
       <origin rpy="3.14 -1.57 1.57" xyz="0.0 0.065 0.055" /> <!-- new version -->
-      <parent link="camera_jig_link" />
-      <child link="camera_bottom_screw_frame" />
+      <parent link="m_camera_jig_link" />
+      <child link="m_camera_bottom_screw_frame" />
   </joint>
-  <link name="camera_bottom_screw_frame" />
+  <link name="m_camera_bottom_screw_frame" />
   <joint name="camera_link_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0 0.0175 0.0125" />
-      <parent link="camera_bottom_screw_frame" />
-      <child link="camera_link" />
+      <parent link="m_camera_bottom_screw_frame" />
+      <child link="m_camera_link" />
   </joint>
-  <link name="camera_link">
+  <link name="m_camera_link">
       <visual>
           <origin rpy="1.57079632679 0 1.57079632679" xyz="0.0149 -0.0175 0" />
           <geometry>
@@ -563,54 +563,54 @@
   <!-- camera depth joints and links -->
   <joint name="camera_depth_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0 0 0" />
-      <parent link="camera_link" />
-      <child link="camera_depth_frame" />
+      <parent link="m_camera_link" />
+      <child link="m_camera_depth_frame" />
   </joint>
-  <link name="camera_depth_frame" />
+  <link name="m_camera_depth_frame" />
   <joint name="camera_depth_optical_joint" type="fixed">
       <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0" />
-      <parent link="camera_depth_frame" />
-      <child link="camera_depth_optical_frame" />
+      <parent link="m_camera_depth_frame" />
+      <child link="m_camera_depth_optical_frame" />
   </joint>
-  <link name="camera_depth_optical_frame" />
+  <link name="m_camera_depth_optical_frame" />
   <!-- camera left IR joints and links -->
   <joint name="camera_left_ir_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0 0.0 0" />
-      <parent link="camera_depth_frame" />
-      <child link="camera_left_ir_frame" />
+      <parent link="m_camera_depth_frame" />
+      <child link="m_camera_left_ir_frame" />
   </joint>
-  <link name="camera_left_ir_frame" />
+  <link name="m_camera_left_ir_frame" />
   <joint name="camera_left_ir_optical_joint" type="fixed">
       <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0" />
-      <parent link="camera_left_ir_frame" />
-      <child link="camera_left_ir_optical_frame" />
+      <parent link="m_camera_left_ir_frame" />
+      <child link="m_camera_left_ir_optical_frame" />
   </joint>
-  <link name="camera_left_ir_optical_frame" />
+  <link name="m_camera_left_ir_optical_frame" />
   <!-- camera right IR joints and links -->
   <joint name="camera_right_ir_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0 -0.05 0" />
-      <parent link="camera_depth_frame" />
-      <child link="camera_right_ir_frame" />
+      <parent link="m_camera_depth_frame" />
+      <child link="m_camera_right_ir_frame" />
   </joint>
-  <link name="camera_right_ir_frame" />
+  <link name="m_camera_right_ir_frame" />
   <joint name="camera_right_ir_optical_joint" type="fixed">
       <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0" />
-      <parent link="camera_right_ir_frame" />
-      <child link="camera_right_ir_optical_frame" />
+      <parent link="m_camera_right_ir_frame" />
+      <child link="m_camera_right_ir_optical_frame" />
   </joint>
-  <link name="camera_right_ir_optical_frame" />
+  <link name="m_camera_right_ir_optical_frame" />
   <!-- camera color joints and links -->
   <joint name="camera_color_joint" type="fixed">
       <origin rpy="0 0 0" xyz="0 0.015 0" />
-      <parent link="camera_depth_frame" />
-      <child link="camera_color_frame" />
+      <parent link="m_camera_depth_frame" />
+      <child link="m_camera_color_frame" />
   </joint>
-  <link name="camera_color_frame" />
+  <link name="m_camera_color_frame" />
   <joint name="camera_color_optical_joint" type="fixed">
       <origin rpy="-1.57079632679 0 -1.57079632679" xyz="0 0 0" />
-      <parent link="camera_color_frame" />
-      <child link="camera_color_optical_frame" />
+      <parent link="m_camera_color_frame" />
+      <child link="m_camera_color_optical_frame" />
   </joint>
-  <link name="camera_color_optical_frame" />
+  <link name="m_camera_color_optical_frame" />
 </robot>
 

@@ -517,7 +517,8 @@
   </joint>
   <link name="camera_jig_link" />
       <inertial>          
-          <mass value="0.328" />          
+          <!-- <mass value="0.328" /> -->
+          <mass value="0.038" />  <!--new version-->
       </inertial>
 
   <!-- CAMERA -->
@@ -526,7 +527,8 @@
   </material>
   <!-- camera body, with origin at bottom screw mount -->
   <joint name="camera_joint" type="fixed">
-      <origin rpy="3.14 -1.57 -1.57" xyz="0.0 -0.09 0.085" />
+      <!-- <origin rpy="3.14 -1.57 -1.57" xyz="0.0 -0.09 0.085" /> -->
+      <origin rpy="3.14 -1.57 1.57" xyz="0.0 0.065 0.055" /> <!-- new version -->
       <parent link="camera_jig_link" />
       <child link="camera_bottom_screw_frame" />
   </joint>
